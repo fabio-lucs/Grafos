@@ -58,14 +58,21 @@ public class Graph {
     }
 
     void printListAdj() {
+        System.out.println();
+        System.out.println("Graph - List of Adjacencies");
+        System.out.println("Order: " + this.getNumber_of_vertex());
+        System.out.println("Size: " + this.getNumber_of_edge());
+        System.out.println("---------------------------");
         for (int i = 0; i < this.listAdj.size(); i++) {
             System.out.print(i + "->");
             for (int v : listAdj.get(i)) {
 
                 System.out.print(v + " -");
             }
-            System.out.println();
+            System.out.println("");
         }
+
+        System.out.println("---------------------------");
     }
 
     // Methods to Read and tranform str in int
