@@ -67,9 +67,9 @@ public class Graph {
         for (int i = 0; i < this.listAdj.size(); i++) {
             int countDegree = 0;
             System.out.print("vertex degree [ " + i + " ] - ");
-            for (int v : listAdj.get(i)) {
+            for (int j = 0; j < listAdj.get(i).size(); j++) {
                 countDegree++;
-                
+
             }
             if (countDegree == 0) {
                 this.number_of_isolated_vertex++;
@@ -79,17 +79,20 @@ public class Graph {
             }
             System.out.print(countDegree);
             System.out.println();
+            System.out.println("---------------------------");
+
         }
+        System.out.println("number of isolated vertices: " + this.getNumber_of_isolated_vertex());
+        System.out.println("number of end vertices: " + this.getNumber_of_end_vertex());
+        System.out.println("---------------------------");
     }
 
     void printListAdj() {
-        getDegree_for_Each_Vertex();
+
         System.out.println();
         System.out.println("Graph - List of Adjacencies");
         System.out.println("Order: " + this.getNumber_of_vertex());
         System.out.println("Size: " + this.getNumber_of_edge());
-        System.out.println("number of isolated vertices: " + this.getNumber_of_isolated_vertex());
-        System.out.println("number of end vertices: " + this.getNumber_of_end_vertex());
         System.out.println("---------------------------");
         for (int i = 0; i < this.listAdj.size(); i++) {
             System.out.print(i + "->");
@@ -101,6 +104,7 @@ public class Graph {
         }
 
         System.out.println("---------------------------");
+        getDegree_for_Each_Vertex();
     }
 
     // Methods to Read and tranform str in int
