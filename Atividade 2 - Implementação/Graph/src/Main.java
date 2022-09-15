@@ -6,6 +6,7 @@ public class Main {
 
         Graph g = new Graph("Atividade 2 - Implementação/Graph/src/pequenoG.txt");
         g.printListAdj();
+        g.getDegree_for_Each_Vertex();
 
     
         

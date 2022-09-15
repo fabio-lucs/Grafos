@@ -9,6 +9,17 @@ public class Graph {
 
     private int number_of_vertex;
     private int number_of_edge;
+    private int number_of_isolated_vertex = 0;
+    private int number_of_end_vertex = 0;
+
+    public int getNumber_of_end_vertex() {
+        return number_of_end_vertex;
+    }
+
+    public int getNumber_of_isolated_vertex() {
+        return number_of_isolated_vertex;
+    }
+
     private LinkedList<LinkedList<Integer>> listAdj;
 
     public Graph(String txt_Path) {
@@ -57,11 +68,31 @@ public class Graph {
         listAdj.get(v2).add(v1);
     }
 
+    void getDegree_for_Each_Vertex() {
+        for (int i = 0; i < this.listAdj.size(); i++) {
+            int countDegree = 0;
+            System.out.print("vertex degree [ " + i + " ] - ");
+            for (int v : listAdj.get(i)) {
+                countDegree++;
+            }
+            if (countDegree == 0) {
+                this.number_of_isolated_vertex++;
+            }
+            if (countDegree == 1) {
+                this.number_of_end_vertex++;
+            }
+            System.out.print(countDegree);
+            System.out.println();
+        }
+    }
+
     void printListAdj() {
         System.out.println();
         System.out.println("Graph - List of Adjacencies");
         System.out.println("Order: " + this.getNumber_of_vertex());
         System.out.println("Size: " + this.getNumber_of_edge());
+        System.out.println("number of isolated vertices: " + this.getNumber_of_isolated_vertex());
+        System.out.println("number of end vertices: " + this.getNumber_of_end_vertex());
         System.out.println("---------------------------");
         for (int i = 0; i < this.listAdj.size(); i++) {
             System.out.print(i + "->");
