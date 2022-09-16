@@ -63,4 +63,54 @@ public class BreadthSearch {
 
     }
 
+    private void showColorsPath() {
+        System.out.println("------------");
+        for (int i = 0; i < color.length; i++) {
+            System.out.println(i + " = " + color[i]); // obs
+
+        }
+        System.out.println("------------");
+    }
+
+    public void find_the_shortest_way(int origin_vertex, int destiny_vertex) {
+        Queue<LinkedList<Integer>> queue = new LinkedList<>();
+        LinkedList<Integer> path = new LinkedList<>();
+
+        path.add(origin_vertex);
+        queue.add(path);
+
+        while (!queue.isEmpty()) {
+            path = queue.poll();
+            int last = path.get(path.size() - 1);
+            if (last == destiny_vertex) {
+                showPath(path);
+                break; // obs
+            }
+            LinkedList<Integer> parent_Vertex = graph.get(last);
+
+            for (int i = 0; i < parent_Vertex.size(); i++) {
+                if (notVisited(parent_Vertex.get(i), path)) {
+                    LinkedList<Integer> newPath = new LinkedList<>(path);
+                    newPath.add(parent_Vertex.get(i));
+                    queue.add(newPath);
+                }
+            }
+        }
+    }
+
+    private boolean notVisited(int v, LinkedList<Integer> path) {
+        for (int i = 0; i < path.size(); i++) {
+            if (path.get(i) == v) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void showPath(LinkedList<Integer> path) {
+        for (Integer v : path) {
+            System.out.print(v + " ");
+        }
+        System.out.println();
+    }
 }
