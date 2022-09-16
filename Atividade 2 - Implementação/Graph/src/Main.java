@@ -11,6 +11,9 @@ public class Main {
 
         // Atividade 3
         
+        BreadthSearch bfs = new BreadthSearch(g);
+        bfs.startBFS(0);
+
 
 
        
