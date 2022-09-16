@@ -26,11 +26,17 @@ public class Graph {
         }
     }
 
-    private int getNumber_of_vertex() {
+    public Graph(LinkedList<LinkedList<Integer>> listAdj, int number_of_vertex, int number_of_edge) {
+        this.listAdj = listAdj;
+        this.number_of_vertex = number_of_vertex;
+        this.number_of_edge = number_of_edge;
+    }
+
+    public int getNumber_of_vertex() {
         return number_of_vertex;
     }
 
-    private int getNumber_of_edge() {
+    public int getNumber_of_edge() {
         return number_of_edge;
     }
 
