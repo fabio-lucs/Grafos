@@ -20,7 +20,7 @@ public class Main {
         int start_vertex = 0;
         int destiny_vertex = 4;
 
-        System.out.println("O menor caminho entre " + start_vertex + " e " + destiny_vertex);
+       
         bfs.find_the_shortest_way(start_vertex, destiny_vertex);
 
     }

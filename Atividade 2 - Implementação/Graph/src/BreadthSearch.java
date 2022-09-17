@@ -19,6 +19,8 @@ public class BreadthSearch {
     }
 
     public void startBFS(int start_vertex) {
+        System.out.println("Executando a busca em largura:");
+        System.out.println();
         this.color = new int[this.number_of_vertex];
 
         for (int i = 0; i < color.length; i++) {
@@ -31,7 +33,7 @@ public class BreadthSearch {
 
         this.queue.add(e);
 
-        // passo()
+        // showColorsSteps();
 
         while (!this.queue.isEmpty()) {
             for (int i = 0; i < this.graph.size(); i++) {
@@ -48,7 +50,7 @@ public class BreadthSearch {
                 } else {
                     System.out.println("Jump Visit: " + queue.element().get(i));
                 }
-                // passo()
+                // showColorsSteps();
             }
 
             for (int i = 0; i < graph.size(); i++) {
@@ -57,19 +59,10 @@ public class BreadthSearch {
                     color[i] = black;
                 }
             }
-            // passo()
+            // showColorsSteps();
             queue.remove();
         }
 
-    }
-
-    private void showColorsPath() {
-        System.out.println("------------");
-        for (int i = 0; i < color.length; i++) {
-            System.out.println(i + " = " + color[i]); // obs
-
-        }
-        System.out.println("------------");
     }
 
     public void find_the_shortest_way(int origin_vertex, int destiny_vertex) {
@@ -83,8 +76,8 @@ public class BreadthSearch {
             path = queue.poll();
             int last = path.get(path.size() - 1);
             if (last == destiny_vertex) {
-                showPath(path);
-                break; // obs
+                showPath(path, origin_vertex, destiny_vertex);
+                break;
             }
             LinkedList<Integer> parent_Vertex = graph.get(last);
 
@@ -107,10 +100,15 @@ public class BreadthSearch {
         return true;
     }
 
-    private void showPath(LinkedList<Integer> path) {
+    private void showPath(LinkedList<Integer> path, int origin_vertex, int destiny_vertex) {
+        System.out.println("-----------------");
+        System.out.println("Printando o menor caminho entre " + origin_vertex + " e " + destiny_vertex + " :");
         for (Integer v : path) {
             System.out.print(v + " ");
         }
         System.out.println();
+        System.out.println("-----------------");
+        System.out.println();
     }
+
 }
