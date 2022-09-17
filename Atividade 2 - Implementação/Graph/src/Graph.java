@@ -88,17 +88,17 @@ public class Graph {
             System.out.println("---------------------------");
 
         }
-        System.out.println("number of isolated vertices: " + this.getNumber_of_isolated_vertex());
-        System.out.println("number of end vertices: " + this.getNumber_of_end_vertex());
+        System.out.println("Número de vértices isolados " + this.getNumber_of_isolated_vertex());
+        System.out.println("Número de vértices de extremidade: " + this.getNumber_of_end_vertex());
         System.out.println("---------------------------");
     }
 
     void printListAdj() {
 
         System.out.println();
-        System.out.println("Graph - List of Adjacencies");
-        System.out.println("Order: " + this.getNumber_of_vertex());
-        System.out.println("Size: " + this.getNumber_of_edge());
+        System.out.println("Grafo - Lista de Adjacência");
+        System.out.println("Ordem: " + this.getNumber_of_vertex());
+        System.out.println("Tamanho: " + this.getNumber_of_edge());
         System.out.println("---------------------------");
         for (int i = 0; i < this.listAdj.size(); i++) {
             System.out.print(i + "->");

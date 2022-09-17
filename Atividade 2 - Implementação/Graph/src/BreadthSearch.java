@@ -29,7 +29,7 @@ public class BreadthSearch {
 
         this.color[start_vertex] = gray;
         LinkedList<Integer> e = graph.get(start_vertex);
-        System.out.println("Start vertex: " + start_vertex);
+        System.out.println("Vértice inicial: " + start_vertex);
 
         this.queue.add(e);
 
@@ -38,24 +38,24 @@ public class BreadthSearch {
         while (!this.queue.isEmpty()) {
             for (int i = 0; i < this.graph.size(); i++) {
                 if (this.graph.get(i) == queue.element()) {
-                    System.out.println("Start vertex: " + i);
+                    System.out.println("Vértice inicial: " + i);
                 }
             }
 
             for (int i = 0; i < queue.element().size(); i++) {
                 if (color[queue.element().get(i)] == white) {
                     color[queue.element().get(i)] = gray; // visited
-                    System.out.println("Visiting: " + queue.element().get(i));
+                    System.out.println("Visitando: " + queue.element().get(i));
                     queue.add(graph.get(queue.element().get(i)));
                 } else {
-                    System.out.println("Jump Visit: " + queue.element().get(i));
+                    System.out.println("Pulando o visitado: " + queue.element().get(i));
                 }
                 // showColorsSteps();
             }
 
             for (int i = 0; i < graph.size(); i++) {
                 if (graph.get(i) == queue.element()) {
-                    System.out.println("Black Vertice: " + i);
+                    System.out.println("Vértice todo visitado (preto): " + i);
                     color[i] = black;
                 }
             }
